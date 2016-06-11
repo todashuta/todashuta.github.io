@@ -11,15 +11,21 @@ window.addEventListener('DOMContentLoaded', function() {
     var colors = ['red', 'green', 'blue'];
     var elemThemeColor = document.querySelector('meta[name=theme-color]');
 
-    // Initialize
-    elemThemeColor.content = colors[0];
-
-    var update = function() {
-      elemThemeColor.content =
-        colors[(colors.indexOf(elemThemeColor.content)+1)%colors.length];
+    if (!elemThemeColor) {
+      return;
     }
 
-    setInterval(update, 1000);
+    elemThemeColor.content = colors[Math.floor(Math.random()*colors.length)];
+
+    //// Initialize
+    //elemThemeColor.content = colors[0];
+
+    //var update = function() {
+    //  elemThemeColor.content =
+    //    colors[(colors.indexOf(elemThemeColor.content)+1)%colors.length];
+    //}
+    //
+    //setInterval(update, 1000);
   })();
 
 }, false);
