@@ -3,25 +3,26 @@
 
 window.addEventListener('DOMContentLoaded', function() {
   console.log('Hello World!');
+
+  // For Google Chrome Android...
+  (function() {
+    'use strict';
+    var idx;
+    var colors = ['red', 'green', 'blue'];
+    var elemThemeColor = document.querySelector('meta[name=theme-color]');
+
+    // Initialize
+    elemThemeColor.content = colors[0];
+
+    var update = function() {
+      elemThemeColor.content =
+        colors[(colors.indexOf(elemThemeColor.content)+1)%colors.length];
+    }
+
+    setInterval(update, 1000);
+  })();
+
 }, false);
-
-// For Google Chrome Android...
-(function() {
-  'use strict';
-  var idx;
-  var colors = ['red', 'green', 'blue'];
-  var elemThemeColor = document.querySelector('meta[name=theme-color]');
-
-  // Initialize
-  elemThemeColor.content = colors[0];
-
-  var update = function() {
-    elemThemeColor.content =
-      colors[(colors.indexOf(elemThemeColor.content)+1)%colors.length];
-  }
-
-  setInterval(update, 1000);
-})();
 
 })();
 
